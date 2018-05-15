@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  a(href='/users/home',style='float:right;')
+    i.fas.fa-arrow-alt-circle-left
+  h1 Voters Registration
+  
+  form(action='/users/party',method ="post",enctype='urlencoded')
+    .form-group
+      label(for='exampleInputEmail1') Party Name
+      input#exampleInputEmail1.form-control(type='text', aria-describedby='emailHelp', placeholder='Enter party name',name='party')
+      
+    .form-group
+      label(for='exampleInputPassword1') Party in Abbreviation
+      input#exampleInputPassword1.form-control(type='text', placeholder='Political Party in abbreviation',name='shortparty')
+    
+    .form-group
+      label(for='exampleInputPassword1') Senatorial District
+      input#exampleInputPassword1.form-control(type='text', placeholder='Senatorial District',name='senator')
+    
+    .form-group
+      label(for='exampleInputPassword1') LGA
+      input#exampleInputPassword1.form-control(type='text', placeholder='LGA',name='lga')
+
+    button.btn.btn-primary(type='submit') Submit

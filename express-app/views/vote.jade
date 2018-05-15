@@ -1,0 +1,67 @@
+extends layout 
+
+block content
+    a(href='/users/home')
+        i.fas.fa-arrow-alt-circle-left
+        
+    body
+
+        h1 Vote 
+        hr 
+        if candidates
+            each candidate, i in candidates
+                table.table
+                    thead
+                        tr
+                        th(scope='col') Candidates
+                        th(scope='col') First Name
+                        th(scope='col') Last Name
+                        th(scope='col') 
+                    tbody
+                        tr
+                        th(scope='row') 
+                              
+                        td #{candidate.firstName}
+                        td #{candidate.lastName}
+                        td
+                            button(onclick="get('#{candidate._id}');") Vote
+
+        
+        script(src='https://code.jquery.com/jquery-3.3.1.js', integrity='sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=', crossorigin='anonymous')
+        script.
+
+            function get(id){
+            console.log(id);
+            $.ajax({
+            url:`http://localhost:3000/api/getCandidate/${id}`,
+            method:"GET",
+            success: (res)=>{
+            console.log(res);
+            let newVote = JSON.parse(res[0].votes) + 1; 
+            console.log('new votes');
+            post(newVote);
+            },
+            })
+            function post(votes){
+            $.ajax({
+            url:`http://localhost:3000/api/getCandidate/${id}`,
+            method:"PUT",
+            data:{
+            'votes':votes
+            },
+            success:(res)=>{
+            console.log(res);
+            }
+            })
+            }
+            }
+             
+
+
+        
+            
+
+
+
+
+    

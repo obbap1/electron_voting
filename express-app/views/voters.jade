@@ -1,0 +1,47 @@
+extends layout
+
+block content
+  a(href='/users/home')
+    i.fas.fa-arrow-alt-circle-left
+  h1 Voters Registration
+  form(action='/users/voters',method ="post",enctype='urlencoded')
+    .form-group
+      label(for='exampleInputEmail1') First Name
+      input#exampleInputEmail1.form-control(type='text', aria-describedby='emailHelp', placeholder='Enter email',name='firstname')
+      
+    .form-group
+      label(for='exampleInputPassword1') Last Name
+      input#exampleInputPassword1.form-control(type='text', placeholder='Password',name='lastname')
+    
+    .form-group
+      label(for='exampleInputPassword1') State of Origin
+      input#exampleInputPassword1.form-control(type='text', placeholder='Password',name='state')
+    
+    .form-group
+      label(for='exampleInputPassword1') LGA
+      input#exampleInputPassword1.form-control(type='text', placeholder='Password',name='lga')
+    
+    .form-group
+      label(for='exampleInputPassword1') Sex
+      input#exampleInputPassword1.form-control(type='text', placeholder='Password',name='sex')
+    
+    .form-group
+        label(for='exampleInputPassword1') Religion
+        select.form-control(name='religion')
+                option(value='Christianity') Christianity
+                option(value='Islam') Islam  
+    
+    .form-group
+      label(for='exampleInputPassword1') Nationality
+      input#exampleInputPassword1.form-control(type='text', placeholder='Nationality',name='nationality')
+    
+    .form-group
+      label(for='exampleInputPassword1') Age
+      input#exampleInputPassword1.form-control(type='number', placeholder='Age',name='age')
+    
+    .form-group
+      label(for='exampleInputPassword1') Registration Number
+      input#exampleInputPassword1.form-control(type='number', placeholder='Reg number',name='reg',value='')
+    
+   
+    button.btn.btn-primary(type='submit') Submit
